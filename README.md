@@ -1,27 +1,54 @@
 # My Project Collection
 
-This repository contains multiple app and UI prototypes I independently developed using Python, Kivy, and other tools. Projects include:
-
-## Inner Odyssey (Game Prototype)
-- A psychological story-driven exploration game built in JavaFX.
-- Features: Story branching, dynamic dialogue, and object interaction.
-
-## MyDays – A Simple To-Do List App
-- Built with Python + Kivy
-- Features: Calendar + Task list + Course planner + Notes
-- Designed with mobile UI in mind, responsive & minimalist
-
-## grabmate-main
-- A hackathon submission: AI assistant prototype for Grab drivers.
-- Voice-to-text with OpenAI Whisper + interface logic (my main contribution)
+Welcome to my personal project portfolio.  
+This repository showcases a collection of applications and UI prototypes that I independently developed using Python, Kivy, JavaFX, and other tools.
 
 ---
 
-### Tech Stack
-- Python, Kivy
-- JavaFX (Java GUI)
-- Git, GitHub, Git LFS
-- UI/UX focused development
+## Inner Odyssey (Game Prototype)
+A psychological, story-driven exploration game built in JavaFX.
 
-###  How to Run
-> Navigate into the directory and run:
+Features:
+- Narrative-based gameplay with mental health themes  
+- Branching storylines and interactive objects  
+- Dialogue system with character emotions
+
+The player explores the mind of a troubled teen and guides them through inner struggles.
+
+---
+
+## MyDays – A Simple To-Do List App
+A minimal and functional task management app created using Python and Kivy.  
+Designed for mobile with a clean and responsive UI.
+
+Key Features:
+- Calendar view for daily planning  
+- To-Do list with completion tracking  
+- Course planner with customizable timetable  
+- Notes section with swipe and long-press interaction
+
+---
+
+## grabmate-main
+Hackathon submission project: An AI Assistant for Grab drivers.  
+My role: Implemented voice-to-text interaction using OpenAI Whisper and integrated it with UI logic.
+
+Core idea:
+- Hands-free AI assistant for safer driving  
+- Real-time voice command functionality
+
+---
+
+## Tech Stack
+- Python, Kivy  
+- Java, JavaFX  
+- Git, GitHub, Git LFS  
+- OpenAI Whisper (Voice recognition)  
+- UI/UX design-focused development
+
+---
+
+## How to Run (MyDays Example)
+```bash
+cd MyDays
+python main.py
