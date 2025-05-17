@@ -2,7 +2,7 @@
 
 This repository contains multiple app and UI prototypes I independently developed using Python, Kivy, and other tools. Projects include:
 
-## 📌 Inner Odyssey (Game Prototype)
+## Inner Odyssey (Game Prototype)
 - A psychological story-driven exploration game built in JavaFX.
 - Features: Story branching, dynamic dialogue, and object interaction.
 
