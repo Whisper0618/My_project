@@ -1,0 +1,277 @@
+<Label>:
+    font_name: "ChineseFont"
+
+<Button>:
+    font_name: "ChineseFont"
+
+<TextInput>:
+    font_name: "ChineseFont"
+
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        FloatLayout:
+            size_hint_y: 0.883
+
+            Image:
+                source: 'bg01.png'
+                size_hint: 1, 1
+                allow_stretch: True
+                keep_ratio: False
+
+            Label:
+                text: '日历'
+                font_size: '48sp'
+                pos_hint: {'top': 0.95, 'center_x': 0.5}
+                size_hint: None, None
+                size: self.texture_size
+                color: 0.66, 0.42, 0.42, 1
+
+            Image:
+                source: 'bg02.png'
+                size_hint: 0.9, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.43}
+                allow_stretch: True
+                keep_ratio: False
+
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'center'
+                size_hint: None, None
+                size: dp(350), dp(330)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.43}
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+                    padding: [dp(10), 0, dp(10), 0]
+                    size_hint_x: 0.9
+                    size_hint_y: None
+                    height: self.minimum_height
+                    size: self.minimum_size
+                    pos_hint: {'center_x': 0.5}
+
+                    BoxLayout:
+                        size_hint_y: None
+                        height: dp(40)
+                        spacing: dp(10)
+                        padding: [0, 0, 0, 0]
+
+                        Button:
+                            text: '<'
+                            on_release: root.prev_month()
+                            size_hint_x: None
+                            width: dp(40)
+                            font_size: '16sp'  # 适度加点字体，保证触控区域可读
+
+                        Label:
+                            id: calendar_title
+                            text: ''
+                            font_size: '20sp'
+                            color: 0.2, 0.2, 0.2, 1
+                            size_hint_x: 1
+                            halign: 'center'
+                            text_size: self.size
+
+                        Button:
+                            text: '>'
+                            on_release: root.next_month()
+                            size_hint_x: None
+                            width: dp(40)
+                            font_size: '16sp'
+
+                    ScrollView:
+                        size_hint: None, None
+                        size: dp(330), dp(300)  # 留出上面导航条高度
+                        bar_width: dp(6)
+                        do_scroll_x: False
+                        do_scroll_y: True
+
+                        GridLayout:
+                            id: calendar_grid
+                            cols: 7
+                            spacing: dp(2)
+                            row_default_height: dp(36)
+                            size_hint: None, None
+                            width: self.minimum_width
+                            height: self.minimum_height
+
+<ToDoScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            size_hint_y: 0.883
+            Image:
+                source: 'bg03.png'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint: 1, 1
+                pos_hint: {'x': 0, 'y': 0}
+
+            Label:
+                text: '待办事项'
+                font_size: '48sp'
+                pos_hint: {'top': 0.95, 'center_x': 0.5}
+                size_hint: None, None
+                size: self.texture_size
+                color: 0.66, 0.42, 0.42, 1
+
+            Image:
+                source: 'bg02.png'
+                size_hint: 0.9, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.48}
+                allow_stretch: True
+                keep_ratio: False
+
+            ScrollView:
+                size_hint: 0.85, 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.48}
+                bar_width: dp(6)
+                BoxLayout:
+                    id: task_list
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: dp(10)
+                    padding: [0, dp(10)]
+
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'center'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.08}
+                size_hint: None, None
+                size: dp(60), dp(60)
+
+                Image:
+                    source: 'add.png'
+                    size_hint: None, None
+                    size: dp(50), dp(50)
+                    on_touch_down:
+                        if self.collide_point(*args[1].pos): app.open_add_task_popup()
+
+<CourseScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            size_hint_y: 0.883
+
+            Image:
+                source: 'bg04.png'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint: 1, 1
+                pos_hint: {'x': 0, 'y': 0}
+
+            Label:
+                text: '课程表'
+                font_size: '48sp'
+                pos_hint: {'top': 0.95, 'center_x': 0.5}
+                size_hint: None, None
+                size: self.texture_size
+                color: 0.66, 0.42, 0.42, 1
+
+            ScrollView:
+                size_hint: 0.9, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.43}
+                bar_width: dp(6)
+                do_scroll_x: False
+                do_scroll_y: True
+
+                GridLayout:
+                    id: course_grid
+                    cols: 7
+                    spacing: dp(5)
+                    row_default_height: dp(40)
+                    size_hint: 1, None
+                    height: self.minimum_height
+
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'bottom'
+            size_hint_y: None
+            height: dp(40)
+
+            Button:
+                text: "Rechoose"
+                font_size: '16sp'
+                background_normal: ''
+                background_down: ''
+                background_color: (0, 0, 0, 0)
+                color: (0, 0, 0, 1)
+                size_hint: None, None
+                size: dp(120), dp(40)
+                on_release: app.open_course_settings_popup()
+
+<NotesScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            size_hint_y: 0.883
+
+            Image:
+                source: 'bg05.png'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint: 1, 1
+                pos_hint: {'x': 0, 'y': 0}
+
+            Label:
+                text: '备忘录'
+                font_size: '48sp'
+                color: 0.66, 0.42, 0.42, 1
+                pos_hint: {'top': 0.95, 'center_x': 0.5}
+                size_hint: None, None
+                size: self.texture_size
+
+            ScrollView:
+                size_hint: 0.85, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.48}
+                bar_width: dp(6)
+                BoxLayout:
+                    id: notes_list
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: dp(12)
+                    padding: [0, dp(10)]
+
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'center'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.08}
+                size_hint: None, None
+                size: dp(70), dp(80)
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: None, None
+                    size: dp(60), dp(80)
+                    spacing: dp(4)
+                    padding: 0
+
+                    Button:
+                        background_normal: 'icon5.png'
+                        background_down: 'icon5.png'
+                        background_color: 1, 1, 1, 1
+                        border: (16, 16, 16, 16)
+                        size_hint: None, None
+                        size: dp(60), dp(60)
+                        on_release: app.sm.get_screen('notes').open_add_note_popup()
+
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [dp(30)]
+
+                    Label:
+                        text: 'add'
+                        font_size: '12sp'
+                        halign: 'center'
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None

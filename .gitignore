@@ -1,0 +1,6 @@
+.buildozer/
+*.pyc
+__pycache__/
+*.apk
+*.log
+.DS_Store
